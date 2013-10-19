@@ -1,0 +1,22 @@
+[Eagle]
+Version="06 02 00"
+Platform="Windows"
+Serial="62191E841E-LSR-WLM-1EL"
+Globals="Globals"
+Desktop="Desktop"
+
+[Globals]
+AutoSaveProject=1
+UsedLibrary="C:/Program Files (x86)/EAGLE-6.2.0/lbr/pinhead.lbr"
+UsedLibrary="C:/Program Files (x86)/EAGLE-6.2.0/lbr/smd-ipc.lbr"
+UsedLibrary="C:/Program Files (x86)/EAGLE-6.2.0/lbr/testpad.lbr"
+
+[Win_1]
+Type="Control Panel"
+Loc="250 250 849 649"
+State=2
+Number=0
+
+[Desktop]
+Screen="1920 1080"
+Window="Win_1"

@@ -1,0 +1,22 @@
+build/default/production/BSW/os_quad_hook.o:  \
+BSW/os_quad_hook.c  \
+ BSW/gen_inc.h  \
+BSW/plot.h  \
+BSW/../LLD/uart_driver.h  \
+BSW/config.h  \
+ BSW/hardware_config.h  \
+BSW/../OS/os_if.h  \
+BSW/../OS/include/FreeRTOS.h  \
+ BSW/../OS/include/projdefs.h  \
+ BSW/../OS/include/../Config/FreeRTOSConfig.h  \
+ BSW/../OS/include/../include/portable.h  \
+ BSW/../OS/include/../include/../portable/MPLAB/PIC32MX/portmacro.h  \
+ BSW/../OS/include/../include/mpu_wrappers.h  \
+BSW/../OS/include/task.h  \
+ BSW/../OS/include/portable.h  \
+BSW/../OS/include/list.h  \
+ BSW/../OS/include/queue.h  \
+BSW/../OS/include/mpu_wrappers.h  \
+ BSW/../OS/include/timers.h  \
+BSW/../OS/include/task.h  \
+ BSW/../OS/Config/FreeRTOSConfig.h 

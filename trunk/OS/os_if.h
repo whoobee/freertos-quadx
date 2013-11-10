@@ -27,14 +27,14 @@
 #define INPUT_PROCESSING_TASK_PRIORITY		( tskIDLE_PRIORITY + 2 )
 #define OUTPUT_PROCESSING_TASK_PRIORITY		( tskIDLE_PRIORITY + 3 )
 
-#define MAIN_LOOP_TIME_PERIOD                   ( 10 / portTICK_RATE_MS )
+#define MAIN_LOOP_TIME_PERIOD                   ( 1 / portTICK_RATE_MS )
 #define DONT_BLOCK                              ( 0 )
 
 /*===========================================================================*
  *                        Variable declarations                              *
  *===========================================================================*/
 /*Task declarations*/
-extern xTaskHandle Main_10ms_task_handler;
+extern xTaskHandle Main_5ms_task_handler;
 extern xTaskHandle Input_Processing_handler;
 extern xTaskHandle Output_Processing_handler;
 /*Timer declarations*/
@@ -45,7 +45,7 @@ extern xTimerHandle Main_loop_timer_handler;
  *===========================================================================*/
 /*Task functions*/
 void Os_Task_Init(void);
-void Main_10ms_task(void *pvParameters);
+void Main_5ms_task(void *pvParameters);
 void Input_Processing_task(void *pvParameters);
 void Output_Processing_task(void *pvParameters);
 /*Timer functions*/

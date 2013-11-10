@@ -16,6 +16,9 @@
 /*Debug include*/
 #include "plot.h"
 
+
+#include "hardware_config.h"
+
 /*===========================================================================*
  *                          Global variables                                 *
  *===========================================================================*/
@@ -42,31 +45,41 @@ void Main_loop_timer_cbk( xTimerHandle xHand)
    switch(LOOP_NUMBER)
    {
       case ms_0:
-            vTaskResume(Main_10ms_task_handler);
+         vTaskResume(Main_5ms_task_handler);
          break;
-      case ms_10:
-            vTaskResume(Main_10ms_task_handler);
+      case ms_1:
+         vTaskResume(Main_5ms_task_handler);
          break;
-      case ms_20:
-            vTaskResume(Main_10ms_task_handler);
+      case ms_2:
+         vTaskResume(Main_5ms_task_handler);
          break;
-      case ms_30:
-            vTaskResume(Main_10ms_task_handler);
+      case ms_3:
+         vTaskResume(Main_5ms_task_handler);
          break;
-      case ms_40:
-         vTaskResume(Main_10ms_task_handler);
+      case ms_4:
+         vTaskResume(Main_5ms_task_handler);
          vTaskResume(Input_Processing_handler);
          vTaskResume(Output_Processing_handler);
          break;
    }
-   if (LOOP_NUMBER < ms_40)
+}
+
+void __ISR(_TIMER_2_VECTOR, IPL2SOFT) Timer2Handler(void)
+{
+   mT2ClearIntFlag();
+
+   if (LOOP_NUMBER < ms_4)
    {
-      LOOP_NUMBER += ms_10;
+      LOOP_NUMBER += ms_1;
    }
    else
    {
       LOOP_NUMBER = ms_0;
    }
+
+
+   //portEND_SWITCHING_ISR( higherPriorityTaskWoken );
+
 }
 
 /*EOF*/

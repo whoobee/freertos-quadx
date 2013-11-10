@@ -21,6 +21,7 @@ system_state_t SYSTEM_STATE;
 /*===========================================================================*
  *                        Function definition                                *
  *===========================================================================*/
+
 void Set_System_Error_Critical(UINT8 error_code)
 {
    if(SYSTEM_STATE.SYSTEM_ERROR.ERROR_SET == FALSE)

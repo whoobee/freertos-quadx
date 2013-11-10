@@ -19,4 +19,5 @@ BSW/../OS/include/list.h  \
 BSW/../OS/include/mpu_wrappers.h  \
  BSW/../OS/include/timers.h  \
 BSW/../OS/include/task.h  \
- BSW/../OS/Config/FreeRTOSConfig.h 
+ BSW/../OS/Config/FreeRTOSConfig.h  \
+BSW/hardware_config.h 

@@ -41,8 +41,8 @@ BOOL I2C_Init(void)
    actualClock = I2CSetFrequency(I2C_BUS, GetPeripheralClock(), I2C_CLOCK_FREQ);
    if (abs(actualClock - I2C_CLOCK_FREQ) > I2C_CLOCK_FREQ / 10)
    {
-	  Set_System_Error_Critical(0x01);
-      ret_val = FALSE;
+       Set_System_Error_Critical(0x01);
+       ret_val = FALSE;
    }
 
    /* Enable the I2C bus */

@@ -14,10 +14,10 @@
 enum
 {
    ms_0 = 0,
-   ms_10,
-   ms_20,
-   ms_30,
-   ms_40
+   ms_1,
+   ms_2,
+   ms_3,
+   ms_4
 };
 
 typedef struct system_init_tag

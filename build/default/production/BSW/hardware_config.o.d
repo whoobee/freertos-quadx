@@ -6,4 +6,5 @@ BSW/../LLD/uart_driver.h  \
 BSW/config.h  \
  BSW/hardware_config.h  \
 BSW/../LLD/i2c_driver.h  \
-BSW/../LLD/sensors.h 
+BSW/../LLD/timer.h  \
+ BSW/../LLD/sensors.h 

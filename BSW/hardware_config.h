@@ -22,7 +22,8 @@
 #define PB_DIV                 8
 #define PRESCALE               256
 #define MSEC                   10E-3
-#define TOGGLES_PER_SEC        10*MSEC
+#define TOGGLES_PER_SEC        5 * MSEC
+#define T2_TICK       	       (SYS_CLOCK/PB_DIV/PRESCALE/TOGGLES_PER_SEC)
 
 /* I/O Definitions */
 #define LED _RC14
@@ -31,6 +32,7 @@
 /*===========================================================================*
  *                        Function declarations                              *
  *===========================================================================*/
+void Update_Status_LED(void);
 void Hardware_Initialization(void);
 
 #endif	/* HARDWARE_CONFIG_H */

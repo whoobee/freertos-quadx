@@ -35,6 +35,8 @@
         <itemPath>LLD/uart_driver.c</itemPath>
         <itemPath>LLD/uart_driver.h</itemPath>
         <itemPath>LLD/lld_if.h</itemPath>
+        <itemPath>LLD/timer.c</itemPath>
+        <itemPath>LLD/timer.h</itemPath>
       </logicalFolder>
       <logicalFolder name="OS" displayName="OS" projectFiles="true">
         <logicalFolder name="Config" displayName="Config" projectFiles="true">
@@ -246,6 +248,7 @@
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
         <property key="UART1" value="true"/>
         <property key="UART2" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="false"/>

@@ -14,6 +14,7 @@
 /*Low level drivers include*/
 #include "../LLD/uart_driver.h"
 #include "../LLD/i2c_driver.h"
+#include "../LLD/timer.h"
 #include "../LLD/sensors.h"
 
 /*===========================================================================*
@@ -23,6 +24,21 @@
 /*===========================================================================*
  *                        Function definition                                *
  *===========================================================================*/
+void Update_Status_LED(void)
+{
+    static unsigned char count;
+    
+    if(count == 200)
+    {
+        LED =~LED;
+        count = 0;
+    }
+    else
+    {
+        count++;
+    }
+}
+
 void Hardware_Initialization(void)
 {
     SYSTEMConfig(SYS_CLOCK, SYS_CFG_WAIT_STATES|SYS_CFG_PCACHE);
@@ -35,6 +51,7 @@ void Hardware_Initialization(void)
 
     UART_Init();
     I2C_Init();
+    Timer_Init();
 }
 
 /*EOF*/

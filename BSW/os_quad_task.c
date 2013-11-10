@@ -22,7 +22,7 @@
 /*===========================================================================*
  *                          Global variables                                 *
  *===========================================================================*/
-xTaskHandle Main_10ms_task_handler = NULL;
+xTaskHandle Main_5ms_task_handler = NULL;
 xTaskHandle Input_Processing_handler = NULL;
 xTaskHandle Output_Processing_handler = NULL;
 
@@ -31,12 +31,12 @@ xTaskHandle Output_Processing_handler = NULL;
  *===========================================================================*/
 void Os_Task_Init(void)
 {
-   xTaskCreate(Main_10ms_task,
-           (signed char *) "Main_10ms_task",
+   xTaskCreate(Main_5ms_task,
+           (signed char *) "Main_5ms_task",
            configMINIMAL_STACK_SIZE,
            NULL,
            MAIN_10MS_TASK_PRIORITY,
-           &Main_10ms_task_handler);
+           &Main_5ms_task_handler);
 
    xTaskCreate(Input_Processing_task,
            (signed char *) "Input_Processing_task",
@@ -54,34 +54,24 @@ void Os_Task_Init(void)
 }
 
 
-void Main_10ms_task(void *pvParameters)
+void Main_5ms_task(void *pvParameters)
 {
-   unsigned int alive_count = 0;
    for (;;)
    {
-      alive_count++;
-      //PLOT(1, "Main10msAliveSignal", alive_count, "dec");
-
-      if ((alive_count % 100) == 0)
-      {
-         //PLOT(1, "Main10ms_Alive_Signal", alive_count, "dec");
-         LED = ~LED;
-      }
-
-      vTaskSuspend(Main_10ms_task_handler);
+      Update_Status_LED();
+      vTaskSuspend(Main_5ms_task_handler);
    }
 }
 
 
 void Input_Processing_task(void *pvParameters)
 {
-   unsigned int alive_count = 0;
    for (;;)
    {
-      Get_Gyro_Val();
-      Get_Acc_Val();
+      //Get_Gyro_Val();
+      //Get_Acc_Val();
 
-      Get_Computed_Sensor_Data();
+      //Get_Computed_Sensor_Data();
 
       vTaskSuspend(Input_Processing_handler);
    }
@@ -90,11 +80,8 @@ void Input_Processing_task(void *pvParameters)
 
 void Output_Processing_task(void *pvParameters)
 {
-   unsigned int alive_count = 0;
    for (;;)
    {
-      PLOT(2, "AccX_val",  ACC_C.data_c.data_computed.x_computed, "deg");
-      PLOT(3, "AccY_val",  ACC_C.data_c.data_computed.y_computed, "deg");
 
       vTaskSuspend(Output_Processing_handler);
    }

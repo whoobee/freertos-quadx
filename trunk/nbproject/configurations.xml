@@ -100,7 +100,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>1.21</languageToolchainVersion>
+        <languageToolchainVersion>1.30</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <compileType>
@@ -141,6 +141,7 @@
         <property key="strict-ansi" value="false"/>
         <property key="support-ansi" value="false"/>
         <property key="use-cci" value="false"/>
+        <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
       </C32>
       <C32-AS>
@@ -208,6 +209,7 @@
         <property key="rtti" value="true"/>
         <property key="strict-ansi" value="false"/>
         <property key="use-cci" value="false"/>
+        <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
       </C32CPP>
       <C32Global>
@@ -248,7 +250,6 @@
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
         <property key="UART1" value="true"/>
         <property key="UART2" value="true"/>
-        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="false"/>

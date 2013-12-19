@@ -12,4 +12,18 @@
  *                        Macros and definitions                             *
  *===========================================================================*/
 
+// Let compile time pre-processor calculate the PR1 (period)
+#define PB_DIV                 8
+#define PRESCALE               256
+#define MSEC                   10E-3
+#define TOGGLES_PER_SEC        5 * MSEC
+#define T2_TICK       	       (SYS_CLOCK/PB_DIV/PRESCALE/TOGGLES_PER_SEC)
+
+
+/*===========================================================================*
+ *                        Function definition                                *
+ *===========================================================================*/
+
+void Timer_Init(void);
+
 #endif	/* TIMER_H */

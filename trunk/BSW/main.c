@@ -51,8 +51,8 @@ static void System_Initialization(void)
    Hardware_Initialization();
    Software_Initialization();
 
-   Gyro_Init();
-   Acc_Init();
+   //Gyro_Init();
+   //Acc_Init();
    
    SYSTEM_STATE.SYSTEM_INIT_DONE = TRUE;
 }

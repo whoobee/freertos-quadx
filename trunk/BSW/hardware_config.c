@@ -50,7 +50,7 @@ void Hardware_Initialization(void)
     BUT = 0;
 
     UART_Init();
-    I2C_Init();
+    //I2C_Init();
     Timer_Init();
 }
 

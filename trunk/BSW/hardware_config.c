@@ -24,11 +24,11 @@
 /*===========================================================================*
  *                        Function definition                                *
  *===========================================================================*/
-void Update_Status_LED(void)
+void Update_Status_LED(unsigned short time)
 {
     static unsigned char count;
     
-    if(count == 200)
+    if(count == time)
     {
         LED =~LED;
         count = 0;
@@ -52,6 +52,7 @@ void Hardware_Initialization(void)
     UART_Init();
     //I2C_Init();
     Timer_Init();
+    ICAP_Init();
 }
 
 /*EOF*/

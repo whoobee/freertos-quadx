@@ -18,7 +18,7 @@
 #define MSEC                   10E-3
 #define TOGGLES_PER_SEC        5 * MSEC
 #define T2_TICK       	       (SYS_CLOCK/PB_DIV/PRESCALE/TOGGLES_PER_SEC)
-
+#define T3_TICK                (500 * MSEC * FOSC)/(PB_DIV * PRESCALE)
 
 /*===========================================================================*
  *                        Function definition                                *

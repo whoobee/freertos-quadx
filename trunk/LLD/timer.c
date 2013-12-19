@@ -28,6 +28,10 @@ void Timer_Init(void)
 
     // set up the timer interrupt with a priority of 2
     ConfigIntTimer2(T2_INT_ON | T2_INT_PRIOR_2);
+
+    // Setup Timer 3 for input capture
+    OpenTimer3(T3_ON | T3_PS_1_256, T3_TICK);
+    
 }
 
 /*EOF*/

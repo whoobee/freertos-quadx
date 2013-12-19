@@ -135,13 +135,20 @@
 #define INCLUDE_vTaskDelay										1
 #define INCLUDE_uxTaskGetStackHighWaterMark                     1
 
+/* Prevent C specific syntax being included in assembly files. */
+#ifndef __LANGUAGE_ASSEMBLY
+	void vAssertCalled( const char *pcFileName, unsigned long ulLine );
+	#define configASSERT( x ) if( ( x ) == 0 ) vAssertCalled( __FILE__, __LINE__ )
+#endif
+
 /* The priority at which the tick interrupt runs.  This should probably be
- kept at 1. */
-#define configKERNEL_INTERRUPT_PRIORITY                         0x01
+kept at 1. */
+#define configKERNEL_INTERRUPT_PRIORITY			0x01
 
 /* The maximum interrupt priority from which FreeRTOS.org API functions can
- be called.  Only API functions that end in ...FromISR() can be used within
- interrupts. */
-#define configMAX_SYSCALL_INTERRUPT_PRIORITY                    0x03
+be called.  Only API functions that end in ...FromISR() can be used within
+interrupts. */
+#define configMAX_SYSCALL_INTERRUPT_PRIORITY	0x03
+
 
 #endif /* FREERTOS_CONFIG_H */

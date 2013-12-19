@@ -79,4 +79,23 @@ unsigned long ulGetRunTimeCounterValue(void)
    return 0UL;
 }
 
+void vAssertCalled( const char * pcFile, unsigned long ulLine )
+{
+volatile unsigned long ul = 0;
+
+	( void ) pcFile;
+	( void ) ulLine;
+
+	__asm volatile( "di" );
+	{
+		/* Set ul to a non-zero value using the debugger to step out of this
+		function. */
+		while( ul == 0 )
+		{
+			portNOP();
+		}
+	}
+	__asm volatile( "ei" );
+}
+
 /*EOF*/

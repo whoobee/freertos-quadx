@@ -18,13 +18,6 @@
 #define	GetInstructionClock()   (SYS_CLOCK)
 
 
-// Let compile time pre-processor calculate the PR1 (period)
-#define PB_DIV                 8
-#define PRESCALE               256
-#define MSEC                   10E-3
-#define TOGGLES_PER_SEC        5 * MSEC
-#define T2_TICK       	       (SYS_CLOCK/PB_DIV/PRESCALE/TOGGLES_PER_SEC)
-
 /* I/O Definitions */
 #define LED _RC14
 #define BUT _RC13

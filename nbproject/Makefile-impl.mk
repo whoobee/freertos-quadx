@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Quad_FreeRTOS.X
+PROJECTNAME=freertos-quadx
 
 # Active Configuration
 DEFAULTCONF=default

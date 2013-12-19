@@ -25,7 +25,7 @@
 /*===========================================================================*
  *                        Function declarations                              *
  *===========================================================================*/
-void Update_Status_LED(void);
+void Update_Status_LED(unsigned short time);
 void Hardware_Initialization(void);
 
 #endif	/* HARDWARE_CONFIG_H */

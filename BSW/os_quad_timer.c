@@ -22,51 +22,37 @@
 /*===========================================================================*
  *                          Global variables                                 *
  *===========================================================================*/
-xTimerHandle Main_loop_timer_handler = NULL;
-void Main_loop_timer_cbk( xTimerHandle xTimer );
-void Os_Timer_Init(void);
+
 
 /*===========================================================================*
  *                        Function definition                                *
  *===========================================================================*/
-void Os_Timer_Init(void)
+void __ISR(_TIMER_2_VECTOR, IPL2SOFT) Timer2Handler(void)
 {
-   Main_loop_timer_handler = xTimerCreate((const signed char *) "Main_loop_timer",
-           (MAIN_LOOP_TIME_PERIOD), pdTRUE, NULL, Main_loop_timer_cbk);
+   static signed portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
 
-   if (Main_loop_timer_handler != NULL)
-   {
-      xTimerStart(Main_loop_timer_handler, DONT_BLOCK);
-   }
-}
+   mT2ClearIntFlag();
 
-void Main_loop_timer_cbk( xTimerHandle xHand)
-{
    switch(LOOP_NUMBER)
    {
       case ms_0:
-         vTaskResume(Main_5ms_task_handler);
+         xSemaphoreGiveFromISR(sem_Main_5ms_h, &xHigherPriorityTaskWoken);
          break;
       case ms_1:
-         vTaskResume(Main_5ms_task_handler);
+         xSemaphoreGiveFromISR(sem_Main_5ms_h, &xHigherPriorityTaskWoken);
          break;
       case ms_2:
-         vTaskResume(Main_5ms_task_handler);
+         xSemaphoreGiveFromISR(sem_Main_5ms_h, &xHigherPriorityTaskWoken);
          break;
       case ms_3:
-         vTaskResume(Main_5ms_task_handler);
+         xSemaphoreGiveFromISR(sem_Main_5ms_h, &xHigherPriorityTaskWoken);
          break;
       case ms_4:
-         vTaskResume(Main_5ms_task_handler);
-         vTaskResume(Input_Processing_handler);
-         vTaskResume(Output_Processing_handler);
+         xSemaphoreGiveFromISR(sem_Main_5ms_h, &xHigherPriorityTaskWoken);
+         xSemaphoreGiveFromISR(sem_Input_Processing_h, &xHigherPriorityTaskWoken);
+         xSemaphoreGiveFromISR(sem_Output_Processing_h, &xHigherPriorityTaskWoken);
          break;
    }
-}
-
-void __ISR(_TIMER_2_VECTOR, IPL2SOFT) Timer2Handler(void)
-{
-   mT2ClearIntFlag();
 
    if (LOOP_NUMBER < ms_4)
    {
@@ -77,9 +63,7 @@ void __ISR(_TIMER_2_VECTOR, IPL2SOFT) Timer2Handler(void)
       LOOP_NUMBER = ms_0;
    }
 
-
-   //portEND_SWITCHING_ISR( higherPriorityTaskWoken );
-
+   portEND_SWITCHING_ISR( xHigherPriorityTaskWoken );
 }
 
 /*EOF*/

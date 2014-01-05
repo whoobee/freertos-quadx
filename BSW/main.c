@@ -62,7 +62,7 @@ void main(void)
    System_Initialization();
 
    Os_Task_Init();
-   Os_Timer_Init();
+   //Os_Timer_Init();
 
    vTaskStartScheduler();
 

@@ -80,7 +80,6 @@ void Main_5ms_task(void *pvParameters)
             //Update_Status_LED(INPUT_CAPTURE_4.data.duty_cicle);
             Update_Status_LED(200);
         }
-        vTaskSuspend(Main_5ms_task_h);
     }
 }
 
@@ -96,7 +95,6 @@ void Input_Processing_task(void *pvParameters)
 
             //Get_Computed_Sensor_Data();
         }
-        vTaskSuspend(Input_Processing_h);
     }
 }
 
@@ -110,7 +108,6 @@ void Output_Processing_task(void *pvParameters)
 
         }
     }
-    vTaskSuspend(Output_Processing_h);
 }
 
 /*EOF*/

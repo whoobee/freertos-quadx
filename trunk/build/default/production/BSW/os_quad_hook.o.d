@@ -17,4 +17,6 @@ BSW/../OS/include/task.h  \
 BSW/../OS/include/queue.h  \
  BSW/../OS/include/timers.h  \
 BSW/../OS/include/task.h  \
+ BSW/../OS/include/semphr.h  \
+BSW/../OS/include/queue.h  \
  BSW/../OS/Config/FreeRTOSConfig.h 

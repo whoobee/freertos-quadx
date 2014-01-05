@@ -23,6 +23,10 @@
         <itemPath>BSW/os_quad_timer.c</itemPath>
         <itemPath>BSW/plot.h</itemPath>
       </logicalFolder>
+      <logicalFolder name="f1" displayName="COA" projectFiles="true">
+        <itemPath>COA/input_processing.c</itemPath>
+        <itemPath>COA/input_processing.h</itemPath>
+      </logicalFolder>
       <logicalFolder name="LLD" displayName="LLD" projectFiles="true">
         <itemPath>LLD/i2c_driver.c</itemPath>
         <itemPath>LLD/i2c_driver.h</itemPath>

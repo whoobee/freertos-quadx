@@ -16,6 +16,7 @@
 #include "include/task.h"
 #include "include/queue.h"
 #include "include/timers.h"
+#include "include/semphr.h"
 /*OS config file*/
 #include "Config/FreeRTOSConfig.h"
 
@@ -34,9 +35,13 @@
  *                        Variable declarations                              *
  *===========================================================================*/
 /*Task declarations*/
-extern xTaskHandle Main_5ms_task_handler;
-extern xTaskHandle Input_Processing_handler;
-extern xTaskHandle Output_Processing_handler;
+extern xTaskHandle Main_5ms_task_h;
+extern xTaskHandle Input_Processing_h;
+extern xTaskHandle Output_Processing_h;
+/*Semaphores declarations*/
+extern xSemaphoreHandle sem_Main_5ms_h;
+extern xSemaphoreHandle sem_Input_Processing_h;
+extern xSemaphoreHandle sem_Output_Processing_h;
 /*Timer declarations*/
 extern xTimerHandle Main_loop_timer_handler;
 

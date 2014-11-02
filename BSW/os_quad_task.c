@@ -69,20 +69,18 @@ void Os_Task_Init(void)
 
 void Main_5ms_task(void *pvParameters)
 {
-   for (;;)
-   {
-      /*Update_Status_LED(UPDATE_EACH_SECOND);*/
-      vTaskSuspend(Main_5ms_task_h);
-   }
+    for (;;)
+    {
+        vTaskSuspend(Main_5ms_task_h);
+    }
     xSemaphoreTake( sem_Main_5ms_h, DONT_BLOCK );
     
     for (;;)
     {
         if( xSemaphoreTake(sem_Main_5ms_h, portMAX_DELAY ) == pdTRUE)
         {
-            //Get_Input_Data(ICAP4, &INPUT_CAPTURE_4);
+            /*Todo: Add mainloop functionality*/
 
-            //Update_Status_LED(INPUT_CAPTURE_4.data.duty_cicle);
             Update_Status_LED(UPDATE_EACH_SECOND);
         }
     }
@@ -95,10 +93,8 @@ void Input_Processing_task(void *pvParameters)
     {
         if( xSemaphoreTake(sem_Input_Processing_h, portMAX_DELAY ) == pdTRUE)
         {
-            //Get_Gyro_Val();
-            //Get_Acc_Val();
+            /*Todo: Add input processing functionality*/
 
-            //Get_Computed_Sensor_Data();
         }
     }
 }
@@ -110,6 +106,7 @@ void Output_Processing_task(void *pvParameters)
     {
         if( xSemaphoreTake(sem_Output_Processing_h, portMAX_DELAY ) == pdTRUE)
         {
+            /*Todo: Add output processing functionality*/
 
         }
     }

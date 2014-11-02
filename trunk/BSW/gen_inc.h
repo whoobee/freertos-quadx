@@ -11,6 +11,9 @@
 /*===========================================================================*
  *                               Include                                     *
  *===========================================================================*/
+#ifndef _SUPPRESS_PLIB_WARNING
+#define _SUPPRESS_PLIB_WARNING
+#endif
 #include <plib.h>
 #include <stdlib.h>
 #include <stdio.h>

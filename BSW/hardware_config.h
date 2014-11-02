@@ -22,10 +22,12 @@
 #define LED _RC14
 #define BUT _RC13
 
+#define UPDATE_EACH_SECOND 200
+
 /*===========================================================================*
  *                        Function declarations                              *
  *===========================================================================*/
-void Update_Status_LED(unsigned short time);
+void Update_Status_LED(unsigned short count_value);
 void Hardware_Initialization(void);
 
 #endif	/* HARDWARE_CONFIG_H */

@@ -24,11 +24,11 @@
 /*===========================================================================*
  *                        Function definition                                *
  *===========================================================================*/
-void Update_Status_LED(unsigned short time)
+void Update_Status_LED(unsigned short count_value)
 {
     static unsigned char count;
     
-    if(count == time)
+    if(count == count_value)
     {
         LED =~LED;
         count = 0;
@@ -41,7 +41,11 @@ void Update_Status_LED(unsigned short time)
 
 void Hardware_Initialization(void)
 {
-    SYSTEMConfig(SYS_CLOCK, SYS_CFG_WAIT_STATES|SYS_CFG_PCACHE);
+    unsigned int pb_clk;
+    
+    pb_clk = SYSTEMConfig(SYS_CLOCK, SYS_CFG_WAIT_STATES|SYS_CFG_PCACHE);
+    //SYSTEMConfigPB(pb_clk);
+    
     INTConfigureSystem(INT_SYSTEM_CONFIG_MULT_VECTOR);
     AD1PCFG = 0xFFFF;
     TRISC = 0x2000;
@@ -52,7 +56,7 @@ void Hardware_Initialization(void)
     UART_Init();
     //I2C_Init();
     Timer_Init();
-    ICAP_Init();
+    //ICAP_Init();
 }
 
 /*EOF*/

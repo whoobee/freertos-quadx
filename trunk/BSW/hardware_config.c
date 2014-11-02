@@ -41,10 +41,7 @@ void Update_Status_LED(unsigned short count_value)
 
 void Hardware_Initialization(void)
 {
-    unsigned int pb_clk;
-    
-    pb_clk = SYSTEMConfig(SYS_CLOCK, SYS_CFG_WAIT_STATES|SYS_CFG_PCACHE);
-    //SYSTEMConfigPB(pb_clk);
+    SYSTEMConfig(SYS_CLOCK, SYS_CFG_WAIT_STATES|SYS_CFG_PCACHE);
     
     INTConfigureSystem(INT_SYSTEM_CONFIG_MULT_VECTOR);
     AD1PCFG = 0xFFFF;
@@ -54,9 +51,7 @@ void Hardware_Initialization(void)
     BUT = 0;
 
     UART_Init();
-    //I2C_Init();
     Timer_Init();
-    //ICAP_Init();
 }
 
 /*EOF*/

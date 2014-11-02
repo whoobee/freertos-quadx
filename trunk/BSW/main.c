@@ -51,9 +51,6 @@ static void System_Initialization(void)
    Hardware_Initialization();
    Software_Initialization();
 
-   //Gyro_Init();
-   //Acc_Init();
-   
    SYSTEM_STATE.SYSTEM_INIT_DONE = TRUE;
 }
 
@@ -62,8 +59,6 @@ void main(void)
    System_Initialization();
 
    Os_Task_Init();
-   //Os_Timer_Init();
-
    vTaskStartScheduler();
 
    INFINITE_LOOP();

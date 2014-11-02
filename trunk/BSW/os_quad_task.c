@@ -69,6 +69,11 @@ void Os_Task_Init(void)
 
 void Main_5ms_task(void *pvParameters)
 {
+   for (;;)
+   {
+      /*Update_Status_LED(UPDATE_EACH_SECOND);*/
+      vTaskSuspend(Main_5ms_task_h);
+   }
     xSemaphoreTake( sem_Main_5ms_h, DONT_BLOCK );
     
     for (;;)
@@ -78,7 +83,7 @@ void Main_5ms_task(void *pvParameters)
             //Get_Input_Data(ICAP4, &INPUT_CAPTURE_4);
 
             //Update_Status_LED(INPUT_CAPTURE_4.data.duty_cicle);
-            Update_Status_LED(200);
+            Update_Status_LED(UPDATE_EACH_SECOND);
         }
     }
 }

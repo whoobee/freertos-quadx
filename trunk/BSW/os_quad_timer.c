@@ -54,6 +54,7 @@ void __ISR(_TIMER_2_VECTOR, IPL2SOFT) Timer2Handler(void)
          break;
    }
 
+   Update_Status_LED(UPDATE_EACH_SECOND);
    if (LOOP_NUMBER < ms_4)
    {
       LOOP_NUMBER += ms_1;

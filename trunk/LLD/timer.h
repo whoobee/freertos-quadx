@@ -12,13 +12,12 @@
  *                        Macros and definitions                             *
  *===========================================================================*/
 
-// Let compile time pre-processor calculate the PR1 (period)
-#define PB_DIV                 8
-#define PRESCALE               256
-#define MSEC                   10E-3
-#define TOGGLES_PER_SEC        5 * MSEC
-#define T2_TICK       	       (SYS_CLOCK/PB_DIV/PRESCALE/TOGGLES_PER_SEC)
-#define T3_TICK                (500 * MSEC * FOSC)/(PB_DIV * PRESCALE)
+// Let compile time pre-processor calculate the PR2 (period)
+/* T2_FREQUENCY = T2_PRESCALER/PER_CLOCK */
+/* T2_ACCURACY = 1/T2_FREQUENCY */
+/* T2_RESOLUTION = 5E-3*/
+#define T2_TICK  0x186  /* T2_TICK = T2_RESOLUTION/T2_ACCURACY */
+
 
 /*===========================================================================*
  *                        Function definition                                *

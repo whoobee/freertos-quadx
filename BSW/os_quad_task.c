@@ -69,12 +69,7 @@ void Os_Task_Init(void)
 
 void Main_5ms_task(void *pvParameters)
 {
-    for (;;)
-    {
-        vTaskSuspend(Main_5ms_task_h);
-    }
     xSemaphoreTake( sem_Main_5ms_h, DONT_BLOCK );
-    
     for (;;)
     {
         if( xSemaphoreTake(sem_Main_5ms_h, portMAX_DELAY ) == pdTRUE)
